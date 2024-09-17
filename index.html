@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Fitness</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<style>
+    h1 {
+        color: #ffffff;
+    }
+
+    body {
+        padding: 50px;
+    }
+
+    div#content {
+        width: 100%;
+        height: 50%;
+        max-width: 400px;
+        max-height: 250px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    div.container {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+        background-color: #ca000d;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease-in-out;
+    }
+
+    div.container:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    div.container h2 {
+        color: #ffffff;
+    }
+</style>
+
+<body>
+    <h1>Treinos</h1>
+
+    <div id="content">
+        <div class="container" onclick="window.location.href='treino1.html'">
+            <h2>Treino 1</h2>
+        </div>
+        <div class="container" onclick="window.location.href='treino2.html'">
+            <h2>Treino 2</h2>
+        </div>
+        <div class="container" onclick="window.location.href='treino3.html'">
+            <h2>Treino 3</h2>
+        </div>
+    </div>
+</body>
+
+</html>
