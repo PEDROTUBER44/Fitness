@@ -1,0 +1,21 @@
+:root {
+    --background-color: #222222;
+    --border-color: rgba(255, 255, 255, 0.200);
+    --primary-color: #181818;
+    --title-text-color-white: #ffffff;
+    --text-color-white: #ffffffde;
+    --rocket-red-color: #ca000d;
+    --button-black-background-color: #0e0e0e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Anton", Arial;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--background-color);
+}
