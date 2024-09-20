@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino One</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<style>
+    h5 {
+        color: #ffffff;
+    }
+    
+    header section h2 {
+        color: #ffffff;
+    }
+
+    div#content {
+        width: 100%;
+        height: auto;
+        padding: 75px 20px 20px 20px;
+    }
+
+    div#content div.workouts {}
+
+    div#content div.workouts div.exercise {
+        background-color: #1b1b1b;
+        border-color: 1px solid #ffffffb4;
+        width: 100%;
+        height: 200px;
+        margin-top: 10px;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    div#content div.workouts div.exercise section.img {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        border-radius: 10px;
+    }
+
+    div#content div.workouts div.exercise section.img img {
+        width: 100%;
+        height: 100%;
+        max-width: 200px;
+        border-radius: 10px;
+    }
+
+    div#content div.workouts div.exercise section.infos {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    div#content div.workouts div.exercise section.infos h2 {
+        color: #ffffff;
+    }
+
+    div#content div.workouts div.exercise section.infos div.status {
+        width: 100%;
+        height: 50px;
+        background-color: #ca000d;
+        border-radius: 10px;
+    }
+
+    .toggle-button {
+        position: relative;
+        display: inline-block;
+    }
+
+    .toggle-button input[type="checkbox"] {
+        display: none;
+    }
+
+    .toggle-button label {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.3s ease;
+    }
+
+    .toggle-button input[type="checkbox"]:checked+label {
+        background-color: #4CAF50;
+        color: white;
+        border-color: #45a049;
+    }
+
+    .toggle-button label:hover {
+        background-color: #e0e0e0;
+    }
+
+    .toggle-button input[type="checkbox"]:checked+label:hover {
+        background-color: #45a049;
+    }
+
+    #completedExercises {
+        margin-top: 20px;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    #completedList {
+        padding-left: 20px;
+    }
+
+    #progressBar {
+        width: 100%;
+        height: 20px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        margin-top: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    #progressFill {
+        width: 0%;
+        height: 100%;
+        background-color: #4CAF50;
+        transition: width 0.3s ease;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    #progressText {
+        text-align: center;
+        margin-top: 5px;
+        font-weight: bold;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+</style>
+
+<body>
+    <header>
+        <section>
+            <h2>TREINO DE SUPERIORES</h2>
+        </section>
+    </header>
+
+    <div id="content">
+        <div class="workouts">
+            <!-- Exercício 1 -->
+            <div class="exercise">
+                <section class="img">
+                    <img src="images/espaltar.webp" alt="Imagem de um Espaltar">
+                </section>
+                <section class="infos">
+                    <h2 class="name">Espaltar</h2>
+                    <div class="moreinfos">
+                        <h5>Repetições: 15s</h5>
+                        <h5>Descanso: 5s</h5>
+                    </div>
+                    <div class="toggle-button">
+                        <input type="checkbox" id="toggle1" />
+                        <label for="toggle1">Concluído</label>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Exercício 2 -->
+            <div class="exercise">
+                <section class="img">
+                    <img src="images/SupinoInclinadoComHalteres.webp" alt="Imagem de um Supino Inclinado com Halteres ">
+                </section>
+                <section class="infos">
+                    <h2 class="name">Supino Inclinado com Halteres</h2>
+                    <div class="moreinfos">
+                        <h5>Repetições: 3x12</h5>
+                        <h5>Descanso: 1:30min</h5>
+                    </div>
+                    <div class="toggle-button">
+                        <input type="checkbox" id="toggle2" />
+                        <label for="toggle2">Concluído</label>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Exercício 3 -->
+            <div class="exercise">
+                <section class="img">
+                    <img src="images/RemadaBaixa.webp" alt="Imagem de uma Remada Baixa">
+                </section>
+                <section class="infos">
+                    <h2 class="name">Remada Baixa</h2>
+                    <div class="moreinfos">
+                        <h5>Repetições: 3x12</h5>
+                        <h5>Descanso: 1:30min</h5>
+                    </div>
+                    <div class="toggle-button">
+                        <input type="checkbox" id="toggle3" />
+                        <label for="toggle3">Concluído</label>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Exercício 4 -->
+            <div class="exercise">
+                <section class="img">
+                    <img src="images/ElevacaoLateral.webp" alt="Imagem de uma Elevacao Lateral">
+                </section>
+                <section class="infos">
+                    <h2 class="name">Elevação Lateral</h2>
+                    <div class="moreinfos">
+                        <h5>Repetições: 3x12</h5>
+                        <h5>Descanso: 1:30min</h5>
+                    </div>
+                    <div class="toggle-button">
+                        <input type="checkbox" id="toggle4" />
+                        <label for="toggle4">Concluído</label>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Exercício 5 -->
+            <div class="exercise">
+                <section class="img">
+                    <img src="images/RoscaDiretaHalteres.webp" alt="Imagem de A Fundo Com Halteres">
+                </section>
+                <section class="infos">
+                    <h2 class="name">Rosca Direta Halteres</h2>
+                    <div class="moreinfos">
+                        <h5>Repetições: 3x12</h5>
+                        <h5>Descanso: 1:30min</h5>
+                    </div>
+                    <div class="toggle-button">
+                        <input type="checkbox" id="toggle5" />
+                        <label for="toggle5">Concluído</label>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Exercício 6 -->
+            <div class="exercise">
+                <section class="img">
+                    <img src="images/TricepsNaPolia.webp" alt="Imagem de Triceps Na Polia">
+                </section>
+                <section class="infos">
+                    <h2 class="name">Triceps na Polia</h2>
+                    <div class="moreinfos">
+                        <h5>Repetições: 3x12</h5>
+                        <h5>Descanso: 1:30min</h5>
+                    </div>
+                    <div class="toggle-button">
+                        <input type="checkbox" id="toggle6" />
+                        <label for="toggle6">Concluído</label>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Exercício 7 -->
+            <div class="exercise">
+                <section class="img">
+                    <img src="images/Abdominal90.webp" alt="Imagem Abdominal 90°">
+                </section>
+                <section class="infos">
+                    <h2 class="name">Abdominal 90°</h2>
+                    <div class="moreinfos">
+                        <h5>Repetições: 20</h5>
+                        <h5>Descanso: 30s</h5>
+                    </div>
+                    <div class="toggle-button">
+                        <input type="checkbox" id="toggle7" />
+                        <label for="toggle7">Concluído</label>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Exercício 8 -->
+            <div class="exercise">
+                <section class="img">
+                    <img src="images/AbdominalObliquoComBola.webp" alt="Imagem Abdominal Com Bola">
+                </section>
+                <section class="infos">
+                    <h2 class="name">Abdominal Oblíquo Com Bola</h2>
+                    <div class="moreinfos">
+                        <h5>Repetições: 15 (cada lado)</h5>
+                        <h5>Descanso: 30s</h5>
+                    </div>
+                    <div class="toggle-button">
+                        <input type="checkbox" id="toggle8" />
+                        <label for="toggle8">Concluído</label>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Exercício 9 -->
+            <div class="exercise">
+                <section class="img">
+                    <img src="images/AbdominalSemLevantarPescoco.webp" alt="Imagem Abdominal Sem Levantar Pescoço">
+                </section>
+                <section class="infos">
+                    <h2 class="name">Abdominal Sem Levantar Pescoço</h2>
+                    <div class="moreinfos">
+                        <h5>Repetições: 20</h5>
+                        <h5>Descanso: 30s</h5>
+                    </div>
+                    <div class="toggle-button">
+                        <input type="checkbox" id="toggle9" />
+                        <label for="toggle9">Concluído</label>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Exercício 10 -->
+            <div class="exercise">
+                <section class="img">
+                    <img src="images/Cardio.webp" alt="Imagem Cardio">
+                </section>
+                <section class="infos">
+                    <h2 class="name">Cardio</h2>
+                    <div class="moreinfos">
+                        <h5>Duração: 15 minutos</h5>
+                        <h5>Intensidade: Moderada</h5>
+                    </div>
+                    <div class="toggle-button">
+                        <input type="checkbox" id="toggle10" />
+                        <label for="toggle10">Concluído</label>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div id="completedExercises">
+            <h3>Exercícios Concluídos</h3>
+            <ul id="completedList"></ul>
+        </div>
+        <div id="progressBar">
+            <div id="progressFill"></div>
+            <div id="progressText">0% concluído</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('.toggle-button input[type="checkbox"]');
+            const completedList = document.getElementById('completedList');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            const totalExercises = checkboxes.length;
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    updateCompletedList();
+                    updateProgressBar();
+                });
+            });
+
+            function updateCompletedList() {
+                completedList.innerHTML = '';
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        const exerciseName = checkbox.closest('.exercise').querySelector('.name').textContent;
+                        const listItem = document.createElement('li');
+                        listItem.textContent = exerciseName;
+                        completedList.appendChild(listItem);
+                    }
+                });
+            }
+
+            function updateProgressBar() {
+                const completedExercises = document.querySelectorAll('.toggle-button input[type="checkbox"]:checked').length;
+                const progressPercentage = (completedExercises / totalExercises) * 100;
+                progressFill.style.width = progressPercentage + '%';
+                progressText.textContent = Math.round(progressPercentage) + '% concluído';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
